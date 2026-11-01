@@ -61,6 +61,7 @@ const createWindow = async () => {
     webPreferences: {
       preload: path.join(__dirname, '../preload/preload.js'),
       devTools: false,
+      spellcheck: false,
     },
   });
 
@@ -79,10 +80,31 @@ const createWindow = async () => {
     mainWindow = null;
   });
 
-  // Open urls in the user's browser
+  // Open real web links (http/https) in the user's browser, but never the
+  // app's own pages (e.g. a Ctrl/middle-clicked sidebar link)
+  const openIfExternal = (url: string) => {
+    const { protocol, origin } = new URL(url);
+    const appOrigin = process.env.ELECTRON_RENDERER_URL
+      ? new URL(process.env.ELECTRON_RENDERER_URL).origin
+      : null;
+    if (
+      (protocol === 'https:' || protocol === 'http:') &&
+      origin !== appOrigin
+    ) {
+      shell.openExternal(url);
+    }
+  };
+
+  // No new app windows from links: open externally or do nothing
   mainWindow.webContents.setWindowOpenHandler((edata) => {
-    shell.openExternal(edata.url);
+    openIfExternal(edata.url);
     return { action: 'deny' };
+  });
+
+  // The window never leaves the app, e.g. when a file is dropped onto it
+  mainWindow.webContents.on('will-navigate', (event, url) => {
+    event.preventDefault();
+    openIfExternal(url);
   });
 
   await mainWindow.loadURL(resolveHtmlPath('index.html'));
