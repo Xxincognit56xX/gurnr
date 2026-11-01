@@ -21,11 +21,11 @@ Filters such as face distortions can be made in [Blender](https://www.blender.or
 
 ## Responsible use
 
-gurnr is meant for editing videos of **yourself**. Only train it on your own face, or on the face of someone who has clearly agreed to it. Do not use it to make misleading videos of real people or to impersonate anyone.
+gurnr is meant for editing videos of **yourself**. Only train it on your own face, or on the face of someone who has clearly agreed to it. Do not use it to make misleading videos of real people to harass them or use the video for any other reason.
 
 ## Built with
 
-Electron, React, React Router, electron-vite and Lucide icons. The project started from [electron-react-boilerplate](https://github.com/electron-react-boilerplate/electron-react-boilerplate).
+Electron. The project started from [electron-react-boilerplate](https://github.com/electron-react-boilerplate/electron-react-boilerplate).
 
 ## License
 
