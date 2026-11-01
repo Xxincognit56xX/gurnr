@@ -1,9 +1,22 @@
-import { useEffect, useId, useRef, useState, type KeyboardEvent, type ReactNode } from 'react';
+import {
+  useEffect,
+  useId,
+  useRef,
+  useState,
+  type KeyboardEvent,
+  type ReactNode,
+} from 'react';
 import './Settings.css';
 
 /* Static layout with placeholder text. The only logic is the Dropdown's open/close/select. */
 
-function Section({ children, danger }: { children: ReactNode; danger?: boolean }) {
+function Section({
+  children,
+  danger,
+}: {
+  children: ReactNode;
+  danger?: boolean;
+}) {
   return (
     <section className={danger ? 'card card-danger' : 'card'}>
       <header className="card-header">
@@ -48,7 +61,14 @@ function RangeField({ id }: { id: string }) {
           Sample
         </output>
       </div>
-      <input id={id} className="range" type="range" min={0} max={100} defaultValue={50} />
+      <input
+        id={id}
+        className="range"
+        type="range"
+        min={0}
+        max={100}
+        defaultValue={50}
+      />
       <p className="field-hint">Sample</p>
     </div>
   );
@@ -164,12 +184,20 @@ function Dropdown({ options, defaultIndex = 0, labelledBy }: DropdownProps) {
         </svg>
       </button>
 
-      <ul id={listId} role="listbox" className="dropdown-menu" aria-labelledby={labelledBy}>
+      <ul
+        id={listId}
+        role="listbox"
+        className="dropdown-menu"
+        aria-labelledby={labelledBy}
+      >
         {options.map((option, i) => {
           const classes = ['dropdown-option'];
           if (i === selected) classes.push('selected');
           if (i === active) classes.push('is-active');
           return (
+            // Keyboard is handled on the combobox trigger (arrows, Enter,
+            // Escape) via aria-activedescendant, so options only need clicks.
+            // eslint-disable-next-line jsx-a11y/click-events-have-key-events
             <li
               key={i}
               id={optionId(i)}
@@ -213,9 +241,21 @@ function SelectField() {
   );
 }
 
-function ModelOption({ selected, onSelect }: { selected: boolean; onSelect: () => void }) {
+function ModelOption({
+  selected,
+  onSelect,
+}: {
+  selected: boolean;
+  onSelect: () => void;
+}) {
   return (
-    <button type="button" role="radio" aria-checked={selected} className="model" onClick={onSelect}>
+    <button
+      type="button"
+      role="radio"
+      aria-checked={selected}
+      className="model"
+      onClick={onSelect}
+    >
       <span className="model-radio" aria-hidden="true" />
       <span className="model-main">
         <span className="model-name">Sample</span>
@@ -235,7 +275,11 @@ function ModelList() {
   return (
     <div className="model-list" role="radiogroup" aria-label="Sample">
       {[0, 1, 2].map((i) => (
-        <ModelOption key={i} selected={selected === i} onSelect={() => setSelected(i)} />
+        <ModelOption
+          key={i}
+          selected={selected === i}
+          onSelect={() => setSelected(i)}
+        />
       ))}
     </div>
   );
@@ -267,6 +311,14 @@ function SegmentedField() {
 
 function ConfirmAction() {
   const [confirming, setConfirming] = useState(false);
+  const cancelRef = useRef<HTMLButtonElement>(null);
+
+  // The button that had focus disappears when confirming starts, so move
+  // focus to Cancel (the safe choice).
+  useEffect(() => {
+    if (confirming) cancelRef.current?.focus();
+  }, [confirming]);
+
   return (
     <div className="row">
       <div className="row-text">
@@ -277,8 +329,8 @@ function ConfirmAction() {
         <div className="inline-actions">
           <button
             type="button"
+            ref={cancelRef}
             className="button button-ghost confirm-in"
-            autoFocus
             onClick={() => setConfirming(false)}
           >
             Sample
@@ -292,7 +344,11 @@ function ConfirmAction() {
           </button>
         </div>
       ) : (
-        <button type="button" className="button button-danger-outline" onClick={() => setConfirming(true)}>
+        <button
+          type="button"
+          className="button button-danger-outline"
+          onClick={() => setConfirming(true)}
+        >
           Sample
         </button>
       )}
@@ -332,7 +388,12 @@ function Settings() {
           <label className="field-label" htmlFor="blender">
             Sample
           </label>
-          <input id="blender" className="input" type="text" placeholder="Sample" />
+          <input
+            id="blender"
+            className="input"
+            type="text"
+            placeholder="Sample"
+          />
         </div>
         <ToggleRow />
         <div className="filter-head">
