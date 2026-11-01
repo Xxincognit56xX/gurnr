@@ -1,0 +1,17 @@
+{
+  "name": "gurnr",
+  "version": "4.6.0",
+  "description": "Local AI app that finds your face in videos and applies custom filters to it",
+  "license": "MIT",
+  "author": {
+    "name": "Xxincognit56xX",
+    "url": "https://github.com/Xxincognit56xX"
+  },
+  "main": "./dist/main/main.js",
+  "scripts": {
+    "rebuild": "node -r ../../.erb/scripts/register.cjs ../../.erb/scripts/electron-rebuild.js",
+    "postinstall": "npm run rebuild && npm run link-modules",
+    "link-modules": "node -r ../../.erb/scripts/register.cjs ../../.erb/scripts/link-modules.ts"
+  },
+  "dependencies": {}
+}
