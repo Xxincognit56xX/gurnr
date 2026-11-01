@@ -303,7 +303,7 @@ function ConfirmAction() {
 function Settings() {
   return (
     <div className="settings-page">
-      <h1 className="title-v2">Grunr Settings</h1>
+      <h1 className="title-v2">Gurnr Settings</h1>
 
       {/* Model */}
       <Section>
