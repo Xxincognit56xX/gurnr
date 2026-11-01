@@ -1,4 +1,7 @@
 # gurnr
+[![GitHub Repo stars](https://img.shields.io/github/stars/Xxincognit56xX/gurnr)](https://github.com/Xxincognit56xX/gurnr/stargazers)
+[![GitHub forks](https://img.shields.io/github/forks/Xxincognit56xX/gurnr)](https://github.com/Xxincognit56xX/gurnr/forks)
+[![GitHub watchers](https://img.shields.io/github/watchers/Xxincognit56xX/gurnr)](https://github.com/Xxincognit56xX/gurnr/watchers)
 
 A desktop app that learns your face from a few photos, finds it in videos, and applies filters and effects to it. Everything runs locally on your computer.
 
