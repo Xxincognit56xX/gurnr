@@ -8,6 +8,7 @@ import './App.css';
 import { Home, Settings, Filter, Wrench } from 'lucide-react';
 import Train from './pages/Train';
 import FilterManager from './pages/FilterManager';
+import SettingsPage from './pages/Settings';
 
 function HomePage() {
   return <h1 className="title">Home</h1>;
@@ -33,10 +34,10 @@ export default function App() {
             <span>Filters</span>
           </NavLink>
 
-          <div className="nav-item bottom-item">
+          <NavLink to="/settings" className="nav-item bottom-item">
             <Settings size={20} />
             <span>Settings</span>
-          </div>
+          </NavLink>
         </div>
 
         <main className="page">
@@ -44,6 +45,7 @@ export default function App() {
             <Route path="/" element={<HomePage />} />
             <Route path="/train" element={<Train />} />
             <Route path="/filtermanager" element={<FilterManager />} />
+            <Route path="/settings" element={<SettingsPage />} />
           </Routes>
         </main>
       </div>
