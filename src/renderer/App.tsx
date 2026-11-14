@@ -27,7 +27,9 @@ function HomePage() {
         onClick={async () => {
           setLabel('Loading...');
           try {
-            const response = await fetch('http://127.0.0.1:8000/');
+            const response = await fetch('http://127.0.0.1:8000/', {
+              headers: { 'X-Gurnr-Token': await window.electron.apiToken() },
+            });
             const data = await response.json();
             setLabel(data.status);
           } catch (err) {

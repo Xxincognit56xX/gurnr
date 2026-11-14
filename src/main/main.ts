@@ -9,6 +9,7 @@
  * `./release/app/dist/main/main.js` using electron-vite.
  */
 import path from 'path';
+import { readFile } from 'fs/promises';
 import { app, BrowserWindow, shell, ipcMain, Menu } from 'electron';
 import log from 'electron-log';
 import { resolveHtmlPath } from './util';
@@ -22,6 +23,12 @@ ipcMain.on('ipc-example', async (event, arg) => {
   console.log(msgTemplate(arg));
   event.reply('ipc-example', msgTemplate('pong'));
 });
+
+ipcMain.handle('api-token', async () =>
+  (
+    await readFile(path.join(app.getPath('userData'), 'api-token'), 'utf8')
+  ).trim(),
+);
 
 if (process.env.NODE_ENV === 'production') {
   process.setSourceMapsEnabled(true);

@@ -1,6 +1,6 @@
 {
   "name": "gurnr",
-  "description": "Local AI app that finds your face in videos and applies custom filters to it",
+  "description": "Local AI app that finds faces in videos and applies custom filters to them",
   "keywords": [
     "electron",
     "react",

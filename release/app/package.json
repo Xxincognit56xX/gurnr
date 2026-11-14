@@ -1,7 +1,7 @@
 {
   "name": "gurnr",
   "version": "4.6.0",
-  "description": "Local AI app that finds your face in videos and applies custom filters to it",
+  "description": "Local AI app that finds faces in videos and applies custom filters to them",
   "license": "GPL-3.0-only",
   "author": {
     "name": "Xxincognit56xX",

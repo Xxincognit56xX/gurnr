@@ -5,6 +5,7 @@ import { contextBridge, ipcRenderer, IpcRendererEvent } from 'electron';
 export type Channels = 'ipc-example';
 
 const electronHandler = {
+  apiToken: (): Promise<string> => ipcRenderer.invoke('api-token'),
   ipcRenderer: {
     sendMessage(channel: Channels, ...args: unknown[]) {
       ipcRenderer.send(channel, ...args);
