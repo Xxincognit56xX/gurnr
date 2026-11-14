@@ -27,3 +27,20 @@ npm-debug.log.*
 *.css.d.ts
 *.sass.d.ts
 *.scss.d.ts
+
+# Python (backend)
+__pycache__/
+*.py[cod]
+backend/**/.venv/
+
+# Model weights and outputs: large, and the pretrained face weights come from
+# the WIDER FACE dataset (non-commercial research only)
+*.pt
+*.pth
+*.onnx
+backend/yolov7-face/runs/
+
+# Training datasets (folders inside data/, e.g. data/widerface/). These hold face
+# photos, including your own, and must never be published. The .yaml configs in
+# data/ itself are still committed.
+backend/yolov7-face/data/*/

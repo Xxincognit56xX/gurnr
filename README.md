@@ -28,8 +28,12 @@ gurnr is meant for editing videos of **yourself**. Only train it on your own fac
 
 ## Built with
 
-Electron. The project started from [electron-react-boilerplate](https://github.com/electron-react-boilerplate/electron-react-boilerplate).
+Electron. The project started from [electron-react-boilerplate](https://github.com/electron-react-boilerplate/electron-react-boilerplate). Face detection uses [yolov7-face](https://github.com/derronqi/yolov7-face), included in [`backend/yolov7-face`](backend/yolov7-face).
 
 ## License
 
-gurnr is released under the [MIT License](LICENSE). Third-party packages keep their own licenses.
+Copyright (C) 2026 Xxincognit56xX
+
+gurnr is free software: you can redistribute it and/or modify it under the terms of the [GNU General Public License, version 3](LICENSE). It comes with no warranty.
+
+It includes code from electron-react-boilerplate (MIT) and yolov7-face (GPL-3.0). See [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md) for their notices. The pretrained face weights are not included and are licensed for non-commercial research only.

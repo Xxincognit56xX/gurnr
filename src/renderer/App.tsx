@@ -4,14 +4,33 @@ import {
   Route,
   NavLink,
 } from 'react-router-dom';
+import { useState } from 'react';
 import './App.css';
-import { Home, Settings, Filter, Wrench } from 'lucide-react';
+import { Home, Settings, Filter, Wrench, GalleryVerticalEnd } from 'lucide-react';
 import Train from './pages/Train';
 import FilterManager from './pages/FilterManager';
 import SettingsPage from './pages/Settings';
+import Gallery from './pages/Gallery';
 
 function HomePage() {
-  return <h1 className="title">Home</h1>;
+  const [label, setLabel] = useState("Click me")
+  return (
+    <div>
+      <h1 className="title">Home</h1>
+    <button onClick={async () => {
+      try {
+        const response = await fetch('http://127.0.0.1:8000/');
+        const data = await response.json();
+        setLabel(data.status);
+      } catch (err) {
+        setLabel('Error: ' + err.message);
+      }
+    }}>
+      {label}
+    </button>
+    <span style={{color: "#9393939b", fontStyle: "italic"}}><br /># api testing button (temporary) </span>
+    </div>
+  )
 }
 
 export default function App() {
@@ -34,6 +53,11 @@ export default function App() {
             <span>Filters</span>
           </NavLink>
 
+          <NavLink to="/gallery" className="nav-item">
+            <GalleryVerticalEnd size={20} />
+            <span>Gallery</span>
+          </NavLink>
+
           <NavLink to="/settings" className="nav-item bottom-item">
             <Settings size={20} />
             <span>Settings</span>
@@ -45,6 +69,7 @@ export default function App() {
             <Route path="/" element={<HomePage />} />
             <Route path="/train" element={<Train />} />
             <Route path="/filtermanager" element={<FilterManager />} />
+            <Route path="/gallery" element={<Gallery />} />
             <Route path="/settings" element={<SettingsPage />} />
           </Routes>
         </main>

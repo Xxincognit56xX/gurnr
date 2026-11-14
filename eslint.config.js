@@ -24,6 +24,7 @@ module.exports = [
       'release/app/dist/**',
       'release/build/**',
       'coverage/**',
+      'backend/**',
       '**/*.css.d.ts',
       '**/*.sass.d.ts',
       '**/*.scss.d.ts',
