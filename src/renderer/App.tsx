@@ -19,7 +19,7 @@ import SettingsPage from './pages/Settings';
 import Gallery from './pages/Gallery';
 
 function HomePage() {
-  const [label, setLabel] = useState('Click me');
+  const [label, setLabel] = useState('Test API');
   return (
     <div>
       <h1 className="title">Home</h1>
@@ -37,8 +37,8 @@ function HomePage() {
       >
         {label}
       </button>
-      <span style={{ color: '#9393939b', fontStyle: 'italic' }}>
-        <br /># api testing button (temporary){' '}
+      <span style={{ color: '#9f98989f', fontStyle: 'italic' }}>
+        <br /># api testing (temporary){' '}
       </span>
     </div>
   );

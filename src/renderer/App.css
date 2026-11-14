@@ -8,10 +8,10 @@ body, html, #root {
 
 body {
   background: linear-gradient(
-    200deg,
-    #302525 -29%,
-    #351521 51%,
-    #310b42 129%
+    160deg,
+    #7c6363 -29%,
+    #6f394d 51%,
+    #6a4f4f 129%
   );
   font-family: sans-serif;
   color: white;
