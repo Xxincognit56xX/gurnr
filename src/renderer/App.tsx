@@ -6,31 +6,42 @@ import {
 } from 'react-router-dom';
 import { useState } from 'react';
 import './App.css';
-import { Home, Settings, Filter, Wrench, GalleryVerticalEnd } from 'lucide-react';
+import {
+  Home,
+  Settings,
+  Filter,
+  Wrench,
+  GalleryVerticalEnd,
+} from 'lucide-react';
 import Train from './pages/Train';
 import FilterManager from './pages/FilterManager';
 import SettingsPage from './pages/Settings';
 import Gallery from './pages/Gallery';
 
 function HomePage() {
-  const [label, setLabel] = useState("Click me")
+  const [label, setLabel] = useState('Click me');
   return (
     <div>
       <h1 className="title">Home</h1>
-    <button onClick={async () => {
-      try {
-        const response = await fetch('http://127.0.0.1:8000/');
-        const data = await response.json();
-        setLabel(data.status);
-      } catch (err) {
-        setLabel('Error: ' + err.message);
-      }
-    }}>
-      {label}
-    </button>
-    <span style={{color: "#9393939b", fontStyle: "italic"}}><br /># api testing button (temporary) </span>
+      <button
+        onClick={async () => {
+          setLabel('Loading...')
+          try {
+            const response = await fetch('http://127.0.0.1:8000/');
+            const data = await response.json();
+            setLabel(data.status);
+          } catch (err) {
+            setLabel('Error: ' + (err as Error).message);
+          }
+        }}
+      >
+        {label}
+      </button>
+      <span style={{ color: '#9393939b', fontStyle: 'italic' }}>
+        <br /># api testing button (temporary){' '}
+      </span>
     </div>
-  )
+  );
 }
 
 export default function App() {
