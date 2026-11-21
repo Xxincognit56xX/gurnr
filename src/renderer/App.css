@@ -7,16 +7,42 @@ body, html, #root {
 }
 
 body {
-  background: linear-gradient(
-    160deg,
-    #7c6363 -29%,
-    #6f394d 51%,
-    #6a4f4f 129%
-  );
+  background: #323339;
   font-family: sans-serif;
   color: white;
   user-select: none;
   cursor: default;
+}
+
+.home {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.news-bg {
+  flex: 1;
+  background: #32333900;
+}
+
+.patch-notes {
+  height: 30%;
+  background: #32333900;
+}
+
+.home > .patch-notes {
+  position: relative;
+  margin-top: 21px;
+}
+
+.home > .patch-notes::before {
+  content: '';
+  position: absolute;
+  top: -21px;
+  left: -20px;
+  right: -20px;
+  height: 1px;
+  background: #757474;
 }
 
 input,
@@ -81,7 +107,7 @@ a:focus-visible {
   
   display: flex;            
   flex-direction: column;   
-  gap: 10px;                
+  gap: 5px;                
 }
 
 .title {

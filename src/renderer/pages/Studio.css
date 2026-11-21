@@ -1,0 +1,60 @@
+.studio-page {
+  --strip-height: 56px;
+  --timeline-height: 100px;
+  --timeline-gap: clamp(12px, 5vh, 40px);
+  --studio-width: min(
+    max(80cqw, min(100cqw - var(--timeline-gap), 560px)),
+    2000px,
+    calc(
+      (100cqh - var(--strip-height) - var(--timeline-gap) - var(--timeline-height)) *
+        16 / 10
+    )
+  );
+  container-type: size;
+  height: 100%;
+  overflow: hidden;
+}
+
+.studio-main {
+  display: grid;
+  grid-template-columns: var(--studio-width) minmax(0, 1fr);
+  align-content: start;
+  gap: var(--timeline-gap);
+}
+
+.studio-video-bg {
+  background: #1f2023;
+  overflow: hidden;
+}
+
+.studio-video {
+  aspect-ratio: 16 / 10;
+  background: #141517;
+}
+
+.studio-video video,
+.studio-video canvas {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.studio-video-strip {
+  display: flex;
+  align-items: center;
+  height: var(--strip-height);
+}
+
+.timeline {
+  display: flex;
+  align-items: center;
+  height: var(--timeline-height);
+  background: #1f2023;
+}
+
+.studio-side-panel {
+  grid-column: 2;
+  grid-row: 1 / span 2;
+  background: #1f2023;
+}

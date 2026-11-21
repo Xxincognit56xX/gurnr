@@ -1,7 +1,7 @@
 import './Settings.css';
 
 function SettingsPage() {
-  return <h1 className="title">Gurnr Settings</h1>;
+  return <div className="settings-page"></div>;
 }
 
 export default SettingsPage;

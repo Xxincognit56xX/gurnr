@@ -4,44 +4,17 @@ import {
   Route,
   NavLink,
 } from 'react-router-dom';
-import { useState } from 'react';
 import './App.css';
-import {
-  Home,
-  Settings,
-  Filter,
-  Wrench,
-  GalleryVerticalEnd,
-} from 'lucide-react';
-import Train from './pages/Train';
-import FilterManager from './pages/FilterManager';
-import SettingsPage from './pages/Settings';
+import { Home, Settings, GalleryVerticalEnd, EditIcon } from 'lucide-react';
+import Studio from './pages/Studio';
 import Gallery from './pages/Gallery';
+import SettingsPage from './pages/Settings';
 
 function HomePage() {
-  const [label, setLabel] = useState('Test API');
   return (
-    <div>
-      <h1 className="title">Home</h1>
-      <button
-        onClick={async () => {
-          setLabel('Loading...');
-          try {
-            const response = await fetch('http://127.0.0.1:8000/', {
-              headers: { 'X-Gurnr-Token': await window.electron.apiToken() },
-            });
-            const data = await response.json();
-            setLabel(data.status);
-          } catch (err) {
-            setLabel('Error: ' + (err as Error).message);
-          }
-        }}
-      >
-        {label}
-      </button>
-      <span style={{ color: '#9f98989f', fontStyle: 'italic' }}>
-        <br /># api testing (temporary){' '}
-      </span>
+    <div className="home">
+      <div className="news-bg"></div>
+      <div className="patch-notes"></div>
     </div>
   );
 }
@@ -56,14 +29,9 @@ export default function App() {
             <span>Home</span>
           </NavLink>
 
-          <NavLink to="/train" className="nav-item">
-            <Wrench size={20} />
-            <span>Train</span>
-          </NavLink>
-
-          <NavLink to="/filtermanager" className="nav-item">
-            <Filter size={20} />
-            <span>Filters</span>
+          <NavLink to="/studio" end className="nav-item">
+            <EditIcon size={20} />
+            <span>Studio</span>
           </NavLink>
 
           <NavLink to="/gallery" className="nav-item">
@@ -80,8 +48,7 @@ export default function App() {
         <main className="page">
           <Routes>
             <Route path="/" element={<HomePage />} />
-            <Route path="/train" element={<Train />} />
-            <Route path="/filtermanager" element={<FilterManager />} />
+            <Route path="/studio" element={<Studio />} />
             <Route path="/gallery" element={<Gallery />} />
             <Route path="/settings" element={<SettingsPage />} />
           </Routes>

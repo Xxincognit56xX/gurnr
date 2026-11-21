@@ -5,8 +5,9 @@ commit `74a2a1df1439f7f5b87c87d7857d874f891acbdc`, licensed under GPL-3.0 (see
 [LICENSE.md](LICENSE.md)). yolov7-face is based on
 [WongKinYiu/yolov7](https://github.com/WongKinYiu/yolov7), also GPL-3.0.
 
-Only what gurnr uses is kept: face detection (`detect.py`), training (`train.py`)
-and its accuracy check (`test.py`), the code they import, and their config files.
+gurnr uses face detection (`detect.py`). The training script (`train.py`) and its
+accuracy check (`test.py`) are kept from upstream but are not used by gurnr.
+Everything else is the code these scripts import and their config files.
 
 ## Pretrained weights
 

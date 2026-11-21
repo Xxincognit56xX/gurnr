@@ -7,10 +7,16 @@ A desktop app that finds every face in a video and applies filters and effects t
 
 ## How it works
 
-1. **Import a video**: upload an existing video or record one in the app.
+1. **Import a video**: open a video file from your computer.
 2. **Find faces**: gurnr detects and tracks every face in every frame.
 3. **Apply a filter**: pick an effect and gurnr renders it onto the faces it found.
-4. **Retrain the model (optional)**: the built-in face model works out of the box. If it misses faces in your kind of footage, you can retrain it on your own labeled photos.
+
+## The app
+
+- **Home**: news and patch notes.
+- **Studio**: the video editor, with a player, a timeline and a side panel. It always fits the window.
+- **Gallery**: your edited videos.
+- **Settings**: app settings.
 
 ## Filters from Blender
 
@@ -18,16 +24,14 @@ Filters such as face distortions can be made in [Blender](https://www.blender.or
 
 ## Privacy
 
-- Videos, photos and models stay on your computer.
-- Nothing is uploaded to a server, and neither face detection nor retraining needs an internet connection.
-- You can delete a retrained model at any time from Settings.
+- Your videos and the face model stay on your computer.
+- Nothing is uploaded to a server, and face detection does not need an internet connection.
 
 ## Responsible use
 
 gurnr can apply effects to anyone's face in a video, so please use it responsibly:
 
 - Only edit and share videos of people who have agreed to it, or that you otherwise have the right to edit and share.
-- Only retrain the model on photos you have the right to use.
 - Do not use gurnr to make misleading videos of real people, to impersonate anyone, or to harass, embarrass or harm someone.
 - Laws about editing and sharing videos of people, including laws on deepfakes, differ between countries. You are responsible for following the ones that apply to you.
 
